@@ -4,62 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Quiz - Conhecimento e Inovação</title>
-
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-      <link rel="stylesheet" href="style.css">
-
-    <!-- FontAwesome -->
+    <!-- FontAwesome icons for technology categories -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <!-- Google Fonts: Outfit -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Tailwind config (precisa vir depois do CDN e antes do body) -->
-    <script>
-        window.tailwind = window.tailwind || {};
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                    },
-                    colors: {
-                        space: {
-                            900: '#030014',
-                            800: '#0a061d',
-                            700: '#151030',
-                            600: '#221b4a',
-                        },
-                        neon: {
-                            cyan: '#00f0ff',
-                            purple: '#397cff',
-                            pink: '#20d6a0',
-                            gold: '#ffd700'
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        glow: {
-                            '0%': { boxShadow: '0 0 15px rgba(0, 240, 255, 0.2)' },
-                            '100%': { boxShadow: '0 0 30px rgba(176, 38, 255, 0.6)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- CSS externo -->
-    <link rel="stylesheet" href="styles.css">
+    
+        <script src="tailwind.config.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-neon-cyan selection:text-space-900">
 
@@ -68,7 +21,7 @@
 
     <!-- Main App Container -->
     <div id="app" class="w-full max-w-6xl mx-auto px-4 py-6 md:py-10 flex flex-col flex-grow relative z-10">
-
+        
         <!-- Header -->
         <header class="flex flex-col md:flex-row items-center justify-between mb-8 pb-4 border-b border-indigo-900/50 gap-4">
             <div class="flex items-center space-x-3 cursor-pointer" onclick="appState.showStart()" role="button" tabindex="0" aria-label="Voltar à tela inicial">
@@ -80,7 +33,7 @@
                     <p class="text-xs text-slate-400 font-medium tracking-widest uppercase">Tecnologia, inovação e conhecimento digital</p>
                 </div>
             </div>
-
+            
             <div class="flex items-center space-x-3 flex-wrap justify-center">
                 <div class="glass-card px-3 py-2 rounded-xl flex items-center space-x-2 text-xs md:text-sm text-slate-300">
                     <i class="fa-solid fa-layer-group text-neon-cyan"></i>
@@ -96,7 +49,7 @@
             </div>
         </header>
 
-        <!-- Quick menu -->
+        <!-- Quick menu: accessible from every screen without leaving the current view -->
         <nav id="quick-menu" class="quick-menu" aria-label="Menu principal" aria-hidden="true">
             <div class="quick-menu-head">
                 <div><span class="quick-menu-kicker">CENTRAL DE COMANDO</span><h2>Menu do jogo</h2></div>
@@ -111,7 +64,9 @@
         </nav>
 
         <!-- View Container -->
-        <main id="view-container" class="flex-grow flex flex-col justify-center"></main>
+        <main id="view-container" class="flex-grow flex flex-col justify-center">
+            <!-- Dynamic content loaded via JavaScript -->
+        </main>
 
         <!-- Footer -->
         <footer class="mt-12 pt-6 border-t border-indigo-900/50 text-center text-xs text-slate-500 flex flex-col md:flex-row justify-between items-center gap-2">
@@ -120,7 +75,12 @@
         </footer>
     </div>
 
-    <!-- JS externo -->
-    <script src="app.js"></script>
+    <!-- Application Script -->
+    <!-- ===== PRO FX PACK ===== -->
+<div id="fx-splash"><div class="logo"><i class="fa-solid fa-microchip"></i></div><small>INICIALIZANDO SISTEMA</small><div class="bar"><i></i></div></div>
+<div id="fx-cursor"></div>
+<canvas id="fx-canvas"></canvas>
+
+    <script src="script.js"></script>
 </body>
 </html>
